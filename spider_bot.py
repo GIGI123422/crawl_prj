@@ -98,6 +98,22 @@ async def content(ctx,p_date,*search):
     for idx in range(len(articles)):
         await ctx.send(articles[idx])
 
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(
+        title='명령 리스트!!(command list)',
+        color=discord.Color.blue()
+    )
+
+    embed.set_thumbnail(
+        url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLByFMbwV_iorbq0iETHCYcuSjXbp7G4BMsA&usqp=CAU')
+    embed.add_field(name="summary (date)", value='입력 날짜의 워드크라우드와 워드카운트를 보여줍니다.', inline=False)
+    embed.add_field(name="title (date, keyword, max_num)", value='제목으로 검색합니다 키워드는 한개만 가능하며 기사 갯수를 정할 수 있습니다.', inline=False)
+    embed.add_field(name="content (date, *keywords)", value='입력한 키워드들을 바탕으로 입력된 키워드가 들어간 기사를 찾아줍니다.', inline=False)
+    embed.add_field(name="t_pick (date)", value='입력한 날짜에 가장 많이 쓰여진 키워드를 바탕으로 기사를 추천 해줍니다.', inline=False)
+
+    await ctx.send(embed=embed)
+
 
         
 # 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
