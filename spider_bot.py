@@ -102,7 +102,7 @@ async def content(ctx,p_date,*search):
         
 # 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
 def database(p_date):
-    client = pymongo.MongoClient('mongodb://3.35.46.109:27017/')
+    client = pymongo.MongoClient('DB_sever')
     db = client.news
     ls = list(db.articles.find({'p_date':p_date}))
     df = pd.DataFrame(ls)
