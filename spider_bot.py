@@ -19,6 +19,52 @@ bot = commands.Bot(command_prefix='!')
 async def on_ready():
     print('Ready!!')
     
+# 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
+def database(p_date):
+    client = pymongo.MongoClient('DB_sever')
+    db = client.news
+    ls = list(db.articles.find({'p_date':p_date}))
+    df = pd.DataFrame(ls)
+    #중복 기사 제거
+    df = df[df.removal.notnull()].reset_index().drop(columns=['index'])
+    return df
+
+# 오늘의 키워드 
+def tdk(p_date):
+    # 자연어처리 툴
+    mecab = Mecab()
+    # 데이터프레임 불러오기
+    df = database(p_date)
+    # 기사 데이터 추출
+    contents = []
+    for data in df.content:
+        if type(data) == str:
+            contents.append(data.strip())
+    # 단어만 추출
+    nouns = []
+    for idx in range(len(contents)):
+        nouns.extend(mecab.nouns(contents[idx]))
+    # 불용어
+    with open('ko_stopwords.txt', 'rt') as txt_file:
+        stop_words = txt_file.readlines()
+    stop_word = []
+    for idx in range(len(stop_words)):
+        stop_word.append(stop_words[idx].replace("\n", ""))
+    # 불용어 걸러내기
+    new_nouns = [each_word for each_word in nouns if each_word not in stop_word]
+    # 단어 중복 체크
+    words = nltk.Text(new_nouns, name='words')
+    # 상위100개 추출
+    data = words.vocab().most_common(100)
+    #워드크라우드 만들기
+    wordcloud = WordCloud(font_path='/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf',
+                          relative_scaling=0.05,
+                          background_color='white',
+                          ).generate_from_frequencies(dict(data))
+    wordcloud.to_file('1.png')
+    return data
+
+    
 @bot.command()
 async def news(ctx,p_date):
     # 이미지 파일 불러오기 위한 엠베드 추가
@@ -116,49 +162,4 @@ async def help(ctx):
 
 
         
-# 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
-def database(p_date):
-    client = pymongo.MongoClient('DB_sever')
-    db = client.news
-    ls = list(db.articles.find({'p_date':p_date}))
-    df = pd.DataFrame(ls)
-    #중복 기사 제거
-    df = df[df.removal.notnull()].reset_index().drop(columns=['index'])
-    return df
-
-# 오늘의 키워드 
-def tdk(p_date):
-    # 자연어처리 툴
-    mecab = Mecab()
-    # 데이터프레임 불러오기
-    df = database(p_date)
-    # 기사 데이터 추출
-    contents = []
-    for data in df.content:
-        if type(data) == str:
-            contents.append(data.strip())
-    # 단어만 추출
-    nouns = []
-    for idx in range(len(contents)):
-        nouns.extend(mecab.nouns(contents[idx]))
-    # 불용어
-    with open('ko_stopwords.txt', 'rt') as txt_file:
-        stop_words = txt_file.readlines()
-    stop_word = []
-    for idx in range(len(stop_words)):
-        stop_word.append(stop_words[idx].replace("\n", ""))
-    # 불용어 걸러내기
-    new_nouns = [each_word for each_word in nouns if each_word not in stop_word]
-    # 단어 중복 체크
-    words = nltk.Text(new_nouns, name='words')
-    # 상위100개 추출
-    data = words.vocab().most_common(100)
-    #워드크라우드 만들기
-    wordcloud = WordCloud(font_path='/usr/share/fonts/truetype/nanum/NanumMyeongjoExtraBold.ttf',
-                          relative_scaling=0.05,
-                          background_color='white',
-                          ).generate_from_frequencies(dict(data))
-    wordcloud.to_file('1.png')
-    return data
-
 bot.run(token)
