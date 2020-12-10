@@ -12,15 +12,16 @@ from discord.ext import commands
 import re
 import pymongo
 
-token = "Bot_token"
+token = "BOT_KEY"
 bot = commands.Bot(command_prefix='!')
+bot.remove_command('help')
 
 @bot.event
 async def on_ready():
     print('Ready!!')
     
 @bot.command()
-async def news(ctx,p_date):
+async def summary(ctx,p_date):
     # 이미지 파일 불러오기 위한 엠베드 추가
     embed = discord.Embed(
         title='wordcloud',
@@ -55,24 +56,38 @@ async def t_pick(ctx,p_date):
     df = database(p_date)
     datas = tdk(p_date)
     t_key = []
-    for keyword in datas[:10]:
+    for keyword in datas[:5]:
         t_key.append(keyword[0])
-    articles = []
+    mecab = Mecab()
+    articles = {}
     for data in df.iterrows():
-        judge = True
+        #기사 하나씩 대조
+        news = data[1].content
+        #단어
+        words = nltk.Text(mecab.nouns(news))
+        count = 0
         for idx in range(len(t_key)):
-            if t_key[idx] not in data[1].content:
-                judge = False
-        if judge == True:
-            articles.append(data[1].link)
-    #기사 길이 별로 정렬
-    sorted_articles = sorted(articles, key=len, reverse=True)
+            count += words.vocab()[t_key[idx]]
+        #딕셔너리에 저장
+        if count != 0:
+            articles[data[1].link] = count    
+    #count 갯수로 정렬
+    sorted_articles = dict(sorted(articles.items(), key=lambda item: item[1],reverse=True))
+    limit = 0
+    #추천 기사
+    rcd = []
+    for link in sorted_articles.keys():
+        rcd.append(link)
+        limit += 1
+        #추천 갯수 제한
+        if limit == 5:
+            break
     try:
-        for idx in range(5):
-            await ctx.send(sorted_articles[idx])
+        for idx in range(len(rcd)):
+            await ctx.send(rcd[idx])
     except:
-        await ctx.send('검색된 기사 모두 불러왔습니다')
-
+        ctx.send('추천 기사를 모두 불러왔습니다!')
+    
     
     
 @bot.command()
@@ -92,16 +107,36 @@ async def title(ctx,p_date,search,max_num=3):
 @bot.command()        
 async def content(ctx,p_date,*search):
     df = database(p_date)
-    articles = []
+    mecab = Mecab()
+    articles = {}
     for data in df.iterrows():
-        judge = True
+        #기사 하나씩 대조
+        news = data[1].content
+        #단어
+        words = nltk.Text(mecab.nouns(news))
+        count = 0
         for idx in range(len(search)):
-            if search[idx] not in data[1].content:
-                judge = False
-        if judge == True:
-            articles.append(data[1].link)
-    for idx in range(len(articles)):
-        await ctx.send(articles[idx])
+            count += words.vocab()[search[idx]]
+        #딕셔너리에 저장
+        if count != 0:
+            articles[data[1].link] = count    
+    #count 갯수로 정렬
+    sorted_articles = dict(sorted(articles.items(), key=lambda item: item[1],reverse=True))
+    limit = 0
+    #추천 기사
+    rcd = []
+    for link in sorted_articles.keys():
+        rcd.append(link)
+        limit += 1
+        #추천 갯수 제한
+        if limit == 5:
+            break
+    try:
+        for idx in range(len(rcd)):
+            await ctx.send(rcd[idx])
+    except:
+        ctx.send('추천 기사를 모두 불러왔습니다!')
+    
 
 @bot.command()
 async def help(ctx):
@@ -114,16 +149,15 @@ async def help(ctx):
         url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLByFMbwV_iorbq0iETHCYcuSjXbp7G4BMsA&usqp=CAU')
     embed.add_field(name="summary (date)", value='입력 날짜의 워드크라우드와 워드카운트를 보여줍니다.', inline=False)
     embed.add_field(name="title (date, keyword, max_num)", value='제목으로 검색합니다 키워드는 한개만 가능하며 기사 갯수를 정할 수 있습니다.', inline=False)
-    embed.add_field(name="content (date, *keywords)", value='입력한 키워드들을 바탕으로 입력된 키워드가 들어간 기사를 찾아줍니다.', inline=False)
+    embed.add_field(name="content (date, *keywords)", value='입력한 키워드들을 바탕으로 입력된 키워드가 많이 들어간 기사를 찾아줍니다.', inline=False)
     embed.add_field(name="t_pick (date)", value='입력한 날짜에 가장 많이 쓰여진 키워드를 바탕으로 기사를 추천 해줍니다.', inline=False)
 
     await ctx.send(embed=embed)
 
-
         
 # 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
 def database(p_date):
-    client = pymongo.MongoClient('DB_sever')
+    client = pymongo.MongoClient('database')
     db = client.news
     ls = list(db.articles.find({'p_date':p_date}))
     df = pd.DataFrame(ls)
