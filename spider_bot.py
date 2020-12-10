@@ -111,8 +111,13 @@ async def t_pick(ctx,p_date):
                 judge = False
         if judge == True:
             articles.append(data[1].link)
-    for idx in range(len(articles)):
-        await ctx.send(articles[idx])
+    #기사 길이 별로 정렬
+    sorted_articles = sorted(articles, key=len, reverse=True)
+    try:
+        for idx in range(10):
+            await ctx.send(sorted_articles[idx])
+    except:
+        await ctx.send('검색된 기사 모두 불러왔습니다')
 
     
     
