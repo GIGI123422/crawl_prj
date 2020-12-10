@@ -87,23 +87,8 @@ async def t_pick(ctx,p_date):
             await ctx.send(rcd[idx])
     except:
         ctx.send('추천 기사를 모두 불러왔습니다!')
+        
     
-    
-    
-@bot.command()
-async def title(ctx,p_date,search,max_num=3):
-    df = database(p_date)
-    #기사 모음
-    articles = []
-    for data in df.iterrows():
-        if search in data[1].title:
-            articles.append(data[1].title + " " + data[1].link)
-    try:
-        for idx in range(max_num):
-            await ctx.send(articles[idx])
-    except:
-        await ctx.send(str(len(articles)) + '개의 기사 모두 불러왔습니다.')
-
 @bot.command()        
 async def content(ctx,p_date,*search):
     df = database(p_date)
@@ -148,7 +133,6 @@ async def help(ctx):
     embed.set_thumbnail(
         url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLByFMbwV_iorbq0iETHCYcuSjXbp7G4BMsA&usqp=CAU')
     embed.add_field(name="summary (date)", value='입력 날짜의 워드크라우드와 워드카운트를 보여줍니다.', inline=False)
-    embed.add_field(name="title (date, keyword, max_num)", value='제목으로 검색합니다 키워드는 한개만 가능하며 기사 갯수를 정할 수 있습니다.', inline=False)
     embed.add_field(name="content (date, *keywords)", value='입력한 키워드들을 바탕으로 입력된 키워드가 많이 들어간 기사를 찾아줍니다.', inline=False)
     embed.add_field(name="t_pick (date)", value='입력한 날짜에 가장 많이 쓰여진 키워드를 바탕으로 기사를 추천 해줍니다.', inline=False)
 
