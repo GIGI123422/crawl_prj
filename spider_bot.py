@@ -68,7 +68,7 @@ async def t_pick(ctx,p_date):
     #기사 길이 별로 정렬
     sorted_articles = sorted(articles, key=len, reverse=True)
     try:
-        for idx in range(10):
+        for idx in range(5):
             await ctx.send(sorted_articles[idx])
     except:
         await ctx.send('검색된 기사 모두 불러왔습니다')
