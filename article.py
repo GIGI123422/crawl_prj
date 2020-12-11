@@ -11,11 +11,11 @@ from datetime import date, timedelta
 yesterday = date.today() - timedelta(1)
 date = yesterday.strftime('%Y.%m.%d')
 df = df[df['p_date'] == date ]
+df['removal'] = date
 df = df.drop(df.loc[df['content']==''].index)
 df = df.drop(['_id'], axis=1)
 df.dropna(inplace=True)
 df.isnull().sum()
-df['removal'] = date
 df.reset_index(drop=True, inplace=True)
 
 
@@ -51,15 +51,13 @@ for v in num:
 
 article = df.drop(index=new_)
 
-#print(article)
 
+#my_articles = article.to_dict('records')
+#client = pymongo.MongoClient('mongodb://3.35.46.109:27017/')
+#articles = client.news.articles
+#articles.insert(my_articles)
 
-my_articles = article.to_dict('records')
-client = pymongo.MongoClient('mongodb://3.35.46.109:27017/')
-articles = client.news.articles
-articles.insert(my_articles)
-
-
+print(article)
 
 
 
