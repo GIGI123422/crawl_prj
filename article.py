@@ -51,9 +51,11 @@ for v in num:
 
 article = df.drop(index=new_)
 
+#print(article)
+
 
 my_articles = article.to_dict('records')
-client = pymongo.MongoClient('mongodb://dss:dss@15.165.100.181/')
+client = pymongo.MongoClient('mongodb://3.35.46.109:27017/')
 articles = client.news.articles
 articles.insert(my_articles)
 
