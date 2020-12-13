@@ -62,9 +62,9 @@ You will require Python 3 and the following libraries
 
 ## Crawling Project Progress
 
-* 1. 데이터 수집 : 네이버 뉴스기사 크롤링(scrapy) & 중복 기사 제거(TF-IDF) & daily 크롤링 자동화(crontab)
-* 2. 데이터 저장 및 관리 : .csv 저장(2년치 크롤링 데이터) & MongoDB 저장(daily 크롤링)
-* 3. 챗봇 개발 : 자연어처리(Mecab) & Stop word & WordCloud 
+* 1. 데이터 수집 : 네이버 뉴스기사 크롤링(scrapy)  +  중복 기사 제거(TF-IDF)  +  daily 크롤링 자동화(crontab)
+* 2. 데이터 저장 및 관리 : .csv 저장(2년치 크롤링 데이터)  +  MongoDB 저장(daily 크롤링)
+* 3. 챗봇 개발 : 자연어처리(Mecab)  +  Stop word  +  WordCloud 
 
 
 
