@@ -27,6 +27,7 @@ async def summary(ctx,p_date):
     """
     Embed 형태로 wordcloud 및 중복 top10 단어 데이터를 표출 해주는 함수
     """
+    
     # 이미지 파일 불러오기 위한 엠베드 추가
     embed = discord.Embed(
         title='wordcloud',
@@ -102,6 +103,7 @@ async def content(ctx,p_date,*search):
     """
     단어를 입력하여, 이와 연관된 기사를 특정 날짜에 찾아주는 함수
     """
+    
     df = database(p_date)
     mecab = Mecab()
     articles = {}
@@ -139,6 +141,7 @@ async def help(ctx):
     """
     Embed 형태로 bot의 명령어를 설명해주는 함수
     """
+    
     embed = discord.Embed(
         title='명령 리스트!!(command list)',
         color=discord.Color.blue()
@@ -157,6 +160,7 @@ def database(p_date):
     """
     몽고DB에서 데이터를 추출하여 데이터프레임 만드는 함수
     """
+    
     client = pymongo.MongoClient('database')
     db = client.news
     ls = list(db.articles.find({'p_date':p_date}))
@@ -170,6 +174,7 @@ def tdk(p_date):
     """
     데이터 베이스에 있는 특정 날짜의 모든 기사 데이터를 가지고 자연어처리를 해주는 함수
     """
+    
     # 자연어처리 툴
     mecab = Mecab()
     # 데이터프레임 불러오기
