@@ -1,4 +1,4 @@
-# News Article Crawling & News Chatbot
+# Project : News Article Crawling & News Chatbot
 
 
 ## Short Description
