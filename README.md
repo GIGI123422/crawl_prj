@@ -40,20 +40,20 @@ You will require Python 3 and the following libraries
 
 ### Prerequisites
 
-* import requests
-* import scrapy
-* import pandas as pd
-* import pymongo
-* import discord
-* import asyncio
-* import nltk
-* from wordcloud import WordCloud
-* from scrapy.http import TextResponse
-* from sklearn.feature_extraction.text import TfidfVectorizer
-* from sklearn.feature_extraction.text import CountVectorizer
-* from sklearn.metrics.pairwise import linear_kernel
-* from IPython.display import Image 
-* from discord.ext import commands
+    - import requests
+    - import scrapy
+    - import pandas as pd
+    - import pymongo
+    - import discord
+    - import asyncio
+    - import nltk
+    - from wordcloud import WordCloud
+    - from scrapy.http import TextResponse
+    - from sklearn.feature_extraction.text import TfidfVectorizer
+    - from sklearn.feature_extraction.text import CountVectorizer
+    - from sklearn.metrics.pairwise import linear_kernel
+    - from IPython.display import Image 
+    - from discord.ext import commands
 
 
 ### Dataset
