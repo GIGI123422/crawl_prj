@@ -104,4 +104,4 @@ You will require Python 3 and the following libraries
 
 ### License
 
-** MIT License
+* MIT License
