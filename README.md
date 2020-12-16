@@ -7,10 +7,10 @@
 
 
 ## Built With
-- [서기현](https://github.com/seogihyun): News Chatbot 개발(NLP, Stopwords, WordCloud) / 발표 및 README 작성
-- [유승균](seton.yoo@gmail.com): News Chatbot 개발 및 관리(NLP, Stopwords, WordCloud) / 개인 AWS server 활용
-- [이기중](): Naver 뉴스기사 크롤링 및 자동화(Scrapy, Crontab) / MongoDB 관리 / 개인 AWS server 활용 / 팀 리더
-- [김종찬](): 뉴스기사 중복제거(TF-IDF, Cosine Similarity) / MongoDB 관리
+- [서기현] : News Chatbot 개발(NLP, Stopwords, WordCloud) / 발표 및 README 작성
+- [유승균] : News Chatbot 개발 및 관리(NLP, Stopwords, WordCloud) / 개인 AWS server 활용
+- [이기중] : Naver 뉴스기사 크롤링 및 자동화(Scrapy, Crontab) / MongoDB 관리 / 개인 AWS server 활용 / 팀 리더
+- [김종찬] : 뉴스기사 중복제거(TF-IDF, Cosine Similarity) / MongoDB 관리
 
 
 ## Getting Started
@@ -117,6 +117,12 @@ You will require Python 3 and the following libraries
       - 개인 맞춤형 추천 알고리즘에 대한 연구도 추후 진행할 예정임.
       - 크롤링한 데이터 저장 시 메모리 경량화 방법에 대한 연구가 필요함.
 
+
+### Team member gitgub address
+- 서기현 : https://github.com/seogihyun
+- 유승균 : https://github.com/setonyoo
+- 이기중 : https://github.com/GIGI123422
+- 김종찬 : https://github.com/itsin
 
 ### License
 
