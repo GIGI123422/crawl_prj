@@ -1,5 +1,7 @@
-# 뉴스기사 크롤링 & 뉴스 챗봇
+# News Article Crawling & News Chatbot
 
+
+## Description
 - Scrapy를 이용하여 네이버 뉴스 기사를 카테고리별로 크롤링하며, crontab을 통해 크롤링 자동화를 구축한다.
 - 크롤링한 데이터는 중복기사 제거 후 MongoDB에 저장되며, Discord 챗봇과 연동시켜 챗봇을 통해 원하는 뉴스 기사 또는 워드클라우드 이미지를 받아볼 수 있다.
 
@@ -17,27 +19,38 @@
 You will require Python 3 and the following libraries
 
 
+## Installation
+
+    - pip install -U scikit-learn
+
+    - pip install Scrapy
+
+    - pip install -U discord.py
+    
+    - pip install pymongo
+    
+    - pip install -U nltk
+    
+    - pip install asyncio
+    
+    - pip install wordcloud
+    
+    - pip install konlpy
+
+
 ### Prerequisites
 
 * import requests
 * import scrapy
-* import threading
-* import time
 * import pandas as pd
 * import pymongo
 * import discord
 * import asyncio
-* import matplotlib.pyplot as plt
 * import nltk
-  
 * from wordcloud import WordCloud
-* from .naver_articles import *
 * from scrapy.http import TextResponse
-* from datetime import datetime, timedelta
-* from .mongodb import collection
 * from sklearn.feature_extraction.text import TfidfVectorizer
 * from sklearn.feature_extraction.text import CountVectorizer
-* from sklearn.metrics.pairwise import linear_kernel
 * from sklearn.metrics.pairwise import linear_kernel
 * from IPython.display import Image 
 * from discord.ext import commands
@@ -67,8 +80,9 @@ You will require Python 3 and the following libraries
 * 3. 챗봇 개발 : 자연어처리(Mecab)  +  Stop word  +  WordCloud 
 
 
+## Project Result
 
-## 
+
 
 
 ### 느낌점 & 추후 연구 및 연구방향
