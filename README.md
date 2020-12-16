@@ -12,6 +12,7 @@
 - [이기중] : Naver 뉴스기사 크롤링 및 자동화(Scrapy, Crontab) / MongoDB 관리 / 개인 AWS server 활용 / 팀 리더
 - [김종찬] : 뉴스기사 중복제거(TF-IDF, Cosine Similarity) / MongoDB 관리
 
+-------------------------------------------------------------------------------------------------------------------------------
 
 ## Getting Started
 
@@ -72,6 +73,8 @@ You will require Python 3 and the following libraries
       - 기간 : 2020.12.05 ~ 2020.12.10(프로젝트 종료)
 
 
+-------------------------------------------------------------------------------------------------------------------------------
+
 ## Crawling Project Progress
 
 * 1. 데이터 수집 : 네이버 뉴스기사 크롤링(scrapy)  +  중복 기사 제거(Cosine Similarity)  +  daily 크롤링 자동화(crontab)
@@ -81,11 +84,11 @@ You will require Python 3 and the following libraries
 
 ## Project Result
 
-**Project Map
+### Project Map
 
 ![project_map](https://user-images.githubusercontent.com/72849922/102315359-5dc9bf80-3fb7-11eb-83a2-61e620965f84.png)
 
-**ChatBot Usage
+### ChatBot Usage
 
 <img width="890" alt="Screen Shot 2020-12-16 at 3 22 29 PM" src="https://user-images.githubusercontent.com/72849922/102313751-8ef4c080-3fb4-11eb-9aaf-5cf762d42d11.png">
 
