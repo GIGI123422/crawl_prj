@@ -1,10 +1,9 @@
 # News Article Crawling & News Chatbot
 
 
-## Description
+## Short Description
 - Scrapy를 이용하여 네이버 뉴스 기사를 카테고리별로 크롤링하며, crontab을 통해 크롤링 자동화를 구축한다.
 - 크롤링한 데이터는 중복기사 제거 후 MongoDB에 저장되며, Discord 챗봇과 연동시켜 챗봇을 통해 원하는 뉴스 기사 또는 워드클라우드 이미지를 받아볼 수 있다.
-
 
 
 ## Built With
