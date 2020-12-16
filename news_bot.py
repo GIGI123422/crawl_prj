@@ -9,7 +9,6 @@ import pandas as pd
 import nltk
 from konlpy.tag import Mecab
 from discord.ext import commands
-import re
 import pymongo
 
 token = "BOT_KEY"
@@ -18,10 +17,17 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
+    """
+    bot 실행시 제대로 작동되는지 인지하게 해주는 함수
+    """
     print('Ready!!')
     
 @bot.command()
 async def summary(ctx,p_date):
+    """
+    Embed 형태로 wordcloud 및 중복 top10 단어 데이터를 표출 해주는 함수
+    """
+    
     # 이미지 파일 불러오기 위한 엠베드 추가
     embed = discord.Embed(
         title='wordcloud',
@@ -48,11 +54,14 @@ async def summary(ctx,p_date):
     # 정보 카운트
     embed.add_field(name="word_count",value=countstr, inline=False)
     # 엠베드 보내기
-    await ctx.send(file=file, embed=embed)
+    await ctx.send(file=file, embed=embed)  
 
-#오늘의 키워드를 이용한 추천 기사  
 @bot.command()
 async def t_pick(ctx,p_date):
+    """
+    특정 날짜의 추천 기사를 보내주는 함수 
+    """
+    
     df = database(p_date)
     datas = tdk(p_date)
     t_key = []
@@ -91,6 +100,10 @@ async def t_pick(ctx,p_date):
     
 @bot.command()        
 async def content(ctx,p_date,*search):
+    """
+    단어를 입력하여, 이와 연관된 기사를 특정 날짜에 찾아주는 함수
+    """
+    
     df = database(p_date)
     mecab = Mecab()
     articles = {}
@@ -125,6 +138,10 @@ async def content(ctx,p_date,*search):
 
 @bot.command()
 async def help(ctx):
+    """
+    Embed 형태로 bot의 명령어를 설명해주는 함수
+    """
+    
     embed = discord.Embed(
         title='명령 리스트!!(command list)',
         color=discord.Color.blue()
@@ -138,9 +155,12 @@ async def help(ctx):
 
     await ctx.send(embed=embed)
 
-        
-# 데이터 베이스에서 추출하여 데이터프레임 만드는 함수    
+            
 def database(p_date):
+    """
+    몽고DB에서 데이터를 추출하여 데이터프레임 만드는 함수
+    """
+    
     client = pymongo.MongoClient('database')
     db = client.news
     ls = list(db.articles.find({'p_date':p_date}))
@@ -151,6 +171,10 @@ def database(p_date):
 
 # 오늘의 키워드 
 def tdk(p_date):
+    """
+    데이터 베이스에 있는 특정 날짜의 모든 기사 데이터를 가지고 자연어처리를 해주는 함수
+    """
+    
     # 자연어처리 툴
     mecab = Mecab()
     # 데이터프레임 불러오기
