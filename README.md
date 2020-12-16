@@ -119,7 +119,7 @@ You will require Python 3 and the following libraries
       - 크롤링한 데이터 저장 시 메모리 경량화 방법에 대한 연구가 필요함.
 
 
-### Team member gitgub address
+### Team member github address
 - 서기현 : https://github.com/seogihyun
 - 유승균 : https://github.com/setonyoo
 - 이기중 : https://github.com/GIGI123422
