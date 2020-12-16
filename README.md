@@ -100,3 +100,8 @@ You will require Python 3 and the following libraries
       - 코사인 유사도를 이용한 효율적인 중복 기사 제거에 대해 추가적인 연구가 필요함.
       - 개인 맞춤형 추천 알고리즘에 대한 연구도 추후 진행할 예정임.
       - 크롤링한 데이터 저장 시 메모리 경량화 방법에 대한 연구가 필요함.
+
+
+### License
+
+** MIT License
