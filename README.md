@@ -81,11 +81,11 @@ You will require Python 3 and the following libraries
 
 ## Project Result
 
-* Project Map
+**Project Map
 
 ![project_map](https://user-images.githubusercontent.com/72849922/102315359-5dc9bf80-3fb7-11eb-83a2-61e620965f84.png)
 
-* ChatBot Usage
+**ChatBot Usage
 
 <img width="890" alt="Screen Shot 2020-12-16 at 3 22 29 PM" src="https://user-images.githubusercontent.com/72849922/102313751-8ef4c080-3fb4-11eb-9aaf-5cf762d42d11.png">
 
