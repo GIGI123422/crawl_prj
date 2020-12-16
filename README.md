@@ -7,10 +7,10 @@
 
 
 ## Built With
-- [서기현](https://github.com/seogihyun): 
-- [유승균]():
-- [이기중]():
-- [김종찬]():
+- [서기현](https://github.com/seogihyun): News Chatbot 개발(NLP, Stopwords, WordCloud) / 발표 및 README 작성
+- [유승균](seton.yoo@gmail.com): News Chatbot 개발 및 관리(NLP, Stopwords, WordCloud) / 개인 AWS server 활용
+- [이기중](): Naver 뉴스기사 크롤링 및 자동화(Scrapy, Crontab) / MongoDB 관리 / 개인 AWS server 활용 / 팀 리더
+- [김종찬](): 뉴스기사 중복제거(TF-IDF, Cosine Similarity) / MongoDB 관리
 
 
 ## Getting Started
@@ -98,8 +98,6 @@ You will require Python 3 and the following libraries
 <img width="892" alt="Screen Shot 2020-12-16 at 3 45 41 PM" src="https://user-images.githubusercontent.com/72849922/102315660-dcbef800-3fb7-11eb-984d-6ea61321b0b8.png">
 
 <img width="891" alt="Screen Shot 2020-12-16 at 3 45 49 PM" src="https://user-images.githubusercontent.com/72849922/102315686-e9dbe700-3fb7-11eb-9968-3dc487ab1e57.png">
-
-<img width="889" alt="Screen Shot 2020-12-16 at 4 02 19 PM" src="https://user-images.githubusercontent.com/72849922/102315801-1f80d000-3fb8-11eb-96e1-dd59590521c8.png">
 
 
 
