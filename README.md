@@ -36,25 +36,7 @@ You will require Python 3 and the following libraries
     - pip install wordcloud
     
     - pip install konlpy
-
-
-### Prerequisites
-
-    - import requests
-    - import scrapy
-    - import pandas as pd
-    - import pymongo
-    - import discord
-    - import asyncio
-    - import nltk
-    - from wordcloud import WordCloud
-    - from scrapy.http import TextResponse
-    - from sklearn.feature_extraction.text import TfidfVectorizer
-    - from sklearn.feature_extraction.text import CountVectorizer
-    - from sklearn.metrics.pairwise import linear_kernel
-    - from IPython.display import Image 
-    - from discord.ext import commands
-
+    
 
 ### Dataset
 
@@ -63,8 +45,6 @@ You will require Python 3 and the following libraries
       - 카테고리 : IT, 생활문화, 경제, 사회
       
       - 기간 : 2019.01.01 ~ 2020.11.29   
-      
-* 2020.11.30 ~ 2020.12.04 - 데이터 용량 과부하로 인한 수집 불가, 추후 다른 PC로 대체
 
 * 네이버 뉴스기사 daily 크롤링 데이터
 
