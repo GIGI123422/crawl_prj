@@ -68,18 +68,13 @@ You will require Python 3 and the following libraries
 
 ### ChatBot Usage
 
-<img width="890" alt="Screen Shot 2020-12-16 at 3 22 29 PM" src="https://user-images.githubusercontent.com/72849922/102313751-8ef4c080-3fb4-11eb-9aaf-5cf762d42d11.png">
+<img width="891" alt="Screen Shot 2021-01-18 at 9 34 58 PM" src="https://user-images.githubusercontent.com/72849922/104916281-2fd00480-59d5-11eb-8893-d9b5c58bd264.png">
 
-<img width="890" alt="Screen Shot 2020-12-16 at 3 44 56 PM" src="https://user-images.githubusercontent.com/72849922/102315561-b731ee80-3fb7-11eb-8f9f-3fc76d340525.png">
+<img width="887" alt="Screen Shot 2021-01-18 at 9 35 14 PM" src="https://user-images.githubusercontent.com/72849922/104916347-44ac9800-59d5-11eb-88a7-ed4482220c36.png">
 
-<img width="892" alt="Screen Shot 2020-12-16 at 3 45 16 PM" src="https://user-images.githubusercontent.com/72849922/102315594-c5800a80-3fb7-11eb-97d6-5f8984cf6b9c.png">
+<img width="888" alt="Screen Shot 2021-01-18 at 9 35 21 PM" src="https://user-images.githubusercontent.com/72849922/104916408-63129380-59d5-11eb-923c-ed2941a721b4.png">
 
-<img width="891" alt="Screen Shot 2020-12-16 at 3 45 28 PM" src="https://user-images.githubusercontent.com/72849922/102315638-d0d33600-3fb7-11eb-819d-b39d93112a5a.png">
-
-<img width="892" alt="Screen Shot 2020-12-16 at 3 45 41 PM" src="https://user-images.githubusercontent.com/72849922/102315660-dcbef800-3fb7-11eb-984d-6ea61321b0b8.png">
-
-<img width="891" alt="Screen Shot 2020-12-16 at 3 45 49 PM" src="https://user-images.githubusercontent.com/72849922/102315686-e9dbe700-3fb7-11eb-9968-3dc487ab1e57.png">
-
+<img width="891" alt="Screen Shot 2021-01-18 at 9 35 28 PM" src="https://user-images.githubusercontent.com/72849922/104916447-7160af80-59d5-11eb-8f65-7ca18a58d458.png">
 
 
 ### 느낌점 & 추후 연구 및 연구방향
