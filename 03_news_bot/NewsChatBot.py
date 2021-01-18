@@ -1,6 +1,6 @@
-import discord
+import discord   # discord 실행을 위한 import
 import asyncio
-import datetime
+import datetime   # 자연어처리를 위한 패키지
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 from wordcloud import WordCloud
@@ -11,13 +11,13 @@ from konlpy.tag import Mecab
 from discord.ext import commands
 import pymongo
 
-token = "BOT_KEY"
-bot = commands.Bot(command_prefix='!')
-bot.remove_command('help')
+token = "BOT_KEY"   # https://discord.com/developers/applications에서 제공하는 Bot Token 입력
+bot = commands.Bot(command_prefix='!')   # 봇에게 명령하기 위해 맨 처음 넣어야 하는 표시기호 설정
+bot.remove_command('help')   # 기존 내장되어 있는 help 함수 제거
 
 
 @bot.event
-async def on_ready():
+async def on_ready():   # 봇이 정상적으로 작동할 준비가 되어 있다는 표시
     """
     bot 실행시 제대로 작동되는지 인지하게 해주는 함수
     """
@@ -25,7 +25,7 @@ async def on_ready():
 
 
 @bot.command()
-async def summary(ctx, p_date):
+async def summary(ctx, p_date):   # 해당 날짜의 뉴스 기사들 중 빈도수가 높은 단어를 워드클라우드 이미지로 전송
     """
     Embed 형태로 wordcloud 및 중복 top10 단어 데이터를 표출 해주는 함수
     """
@@ -60,7 +60,7 @@ async def summary(ctx, p_date):
 
 
 @bot.command()
-async def t_pick(ctx, p_date):
+async def t_pick(ctx, p_date):   # 해당 날짜의 뉴스 기사 내용 중 빈도수가 가장 높은 단어들이 포함된 뉴스 기사 상위 5개 전송
     """
     특정 날짜의 추천 기사를 보내주는 함수
     """
@@ -102,7 +102,7 @@ async def t_pick(ctx, p_date):
 
 
 @bot.command()
-async def content(ctx, p_date, *search):
+async def content(ctx, p_date, *search):   # 해당 날짜의 누스 기사들 중 기사 내용에 해당 키워드가 가장 많이 들어있는 순으로 뉴스 기사 링크 전송
     """
     단어를 입력하여, 이와 연관된 기사를 특정 날짜에 찾아주는 함수
     """
@@ -140,7 +140,7 @@ async def content(ctx, p_date, *search):
 
 
 @bot.command()
-async def help(ctx):
+async def help(ctx):   # 명령어 리스트 정보 
     """
     Embed 형태로 bot의 명령어를 설명해주는 함수
     """
